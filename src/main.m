@@ -8,7 +8,7 @@ RADIUS = 100;
 HEIGHT = 100;
 
 ANTENNA_ANGLE = deg2rad(1);
-RESPONSE_TIME = 21e-6
+RESPONSE_TIME = 21e-6;
 SPEED_OF_LIGHT = 3e8;
 
 % % % % % RUN SIMULATION N TIMES% % % % % 
@@ -17,6 +17,8 @@ no_of_collisions = 0;
 for i = NUMBER_OF_SIMS
     [r, phi, z] = generate_acft(i, RADIUS, HEIGHT);
 
+    plot_scope(RADIUS, HEIGHT, r, phi, z);
+    
     for j = 1:numel(phi)
         for k = 1:numel(phi)
             if (phi(k) - phi(j)) <= ANTENNA_ANGLE
